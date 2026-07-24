@@ -1,0 +1,137 @@
+﻿Cloud Detective Kit
+Automated Cloud Digital Forensics and Incident Response Framework
+
+Author
+Kathan Majithiya
+Abstract
+Cloud computing environments generate a massive volume of logs that are critical for forensic investigations. Manual analysis of cloud logs is time-consuming and prone to human error. This project presents the Cloud Detective Kit, an automated cloud forensic investigation framework designed to analyze AWS CloudTrail logs, detect suspicious activities, reconstruct attack timelines, map events to the MITRE ATT&CK framework, calculate risk scores, and generate Digital Forensics and Incident Response (DFIR) reports.
+The framework automates the collection, normalization, analysis, and reporting of cloud forensic evidence. Detection rules were implemented for suspicious EC2 enumeration activities, STS AssumeRole privilege escalation attempts, and S3 reconnaissance behavior. The generated reports provide investigators with actionable insights and reduce manual investigation effort.
+
+1. Introduction
+Cloud environments present unique forensic challenges due to distributed infrastructure, dynamic resources, and large-scale logging systems. Traditional forensic approaches are often insufficient for cloud-native investigations.
+AWS CloudTrail provides detailed logs of user and service activities. These logs contain valuable forensic evidence that can be analyzed to identify suspicious behavior, attacker actions, and security incidents.
+The Cloud Detective Kit was developed to automate cloud forensic analysis and generate investigation-ready reports.
+
+2. Objectives
+The primary objectives of this project are:
+â€¢	Collect AWS CloudTrail log data.
+â€¢	Normalize cloud log records into a standard format.
+â€¢	Detect suspicious cloud activities.
+â€¢	Map attacker behavior to MITRE ATT&CK techniques.
+â€¢	Calculate investigation risk scores.
+â€¢	Reconstruct attack timelines.
+â€¢	Generate automated DFIR reports.
+
+3. System Architecture
+The Cloud Detective Kit consists of the following components:
+Log Collection Layer
+â€¢	AWS CloudTrail Logs
+â€¢	JSON Log Files
+Processing Layer
+â€¢	Parsing Engine
+â€¢	Field Extraction
+â€¢	Data Normalization
+Detection Engine
+â€¢	EC2 Enumeration Detection
+â€¢	STS AssumeRole Detection
+â€¢	S3 Access Discovery Detection
+Analysis Layer
+â€¢	MITRE ATT&CK Mapping
+â€¢	Risk Scoring
+â€¢	Timeline Reconstruction
+Reporting Layer
+â€¢	HTML DFIR Report Generation
+
+4. Methodology
+4.1 Log Collection
+CloudTrail logs are collected in JSON format and contain records of AWS API calls, user activities, source IP addresses, timestamps, and event metadata.
+4.2 Log Normalization
+The framework extracts key fields:
+â€¢	eventName
+â€¢	eventSource
+â€¢	sourceIPAddress
+â€¢	eventTime
+The extracted information is converted into a standardized structure for further analysis.
+4.3 Detection Engine
+Rule-based detection logic is applied to identify suspicious activities.
+EC2 Enumeration
+Detects:
+â€¢	DescribeInstances
+â€¢	DescribeRegions
+â€¢	DescribeSubnets
+â€¢	DescribeSecurityGroups
+STS Privilege Escalation
+Detects:
+â€¢	AssumeRole
+S3 Reconnaissance
+Detects:
+â€¢	GetBucketAcl
+
+5. MITRE ATT&CK Mapping
+Tactic	Technique	Description
+TA0043	T1590	Reconnaissance
+TA0004	T1078	Privilege Escalation
+MITRE ATT&CK mapping provides context regarding attacker behavior and investigation priorities.
+
+6. Risk Scoring
+Each suspicious event is assigned a severity level:
+â€¢	High Risk
+â€¢	Medium Risk
+â€¢	Low Risk
+The overall investigation risk score is calculated on a scale of 0â€“10 based on the number and severity of suspicious activities.
+
+7. Timeline Reconstruction
+The framework reconstructs event sequences chronologically to support forensic investigations.
+Benefits:
+â€¢	Attack path reconstruction
+â€¢	Event correlation
+â€¢	Investigation prioritization
+â€¢	Incident understanding
+
+8. Results
+The Cloud Detective Kit successfully identified:
+â€¢	Suspicious EC2 enumeration activity
+â€¢	STS privilege escalation attempts
+â€¢	S3 access discovery behavior
+â€¢	Multiple suspicious source IP addresses
+The framework automatically generated a DFIR report containing:
+â€¢	Risk Summary
+â€¢	Suspicious Events
+â€¢	MITRE Mapping
+â€¢	Timeline Analysis
+â€¢	Security Recommendations
+
+9. Challenges
+Several challenges were encountered:
+â€¢	Missing source IP information in some AWS service events.
+â€¢	Inconsistent CloudTrail record structures.
+â€¢	Service-generated events appearing as AWS internal services.
+â€¢	Large log volumes requiring efficient processing.
+
+10. Future Scope
+Future enhancements include:
+â€¢	Real-time cloud monitoring
+â€¢	AWS GuardDuty integration
+â€¢	Security Hub integration
+â€¢	Threat intelligence feeds
+â€¢	Multi-cloud support
+â€¢	Machine learning-based anomaly detection
+
+11. Conclusion
+The Cloud Detective Kit demonstrates the effectiveness of automated cloud forensic investigations. By combining CloudTrail log analysis, MITRE ATT&CK mapping, risk scoring, timeline reconstruction, and DFIR reporting, the framework provides investigators with a powerful tool for cloud incident response.
+The project successfully achieved its objective of reducing manual forensic effort while improving investigation speed, consistency, and reporting quality.
+
+Technologies Used
+â€¢	Python
+â€¢	AWS CloudTrail
+â€¢	Pandas
+â€¢	HTML/CSS
+â€¢	JSON
+â€¢	MITRE ATT&CK Framework
+
+Repository
+Cloud Detective Kit â€“ Automated Cloud Digital Forensics and Incident Response Framework
+
+
+
+

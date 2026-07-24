@@ -1,0 +1,45 @@
+﻿SCENARIO 1: NORMAL BASELINE ACTIVITY
+====================================
+
+Date: January 21, 2026
+Time Started: 10:00 AM
+Duration: 15 minutes
+
+ACTIVITIES PERFORMED:
+
+1. S3 Service (10:00-10:05)
+   - Listed buckets
+   - Explored create bucket form (cancelled)
+   - Viewed bucket properties (if any existed)
+   
+2. EC2 Service (10:05-10:10)
+   - Viewed instances
+   - Checked security groups
+   - Explored launch instance wizard (cancelled)
+   
+3. IAM Service (10:10-10:15)
+   - Viewed my user details
+   - Checked permissions
+   - Listed roles
+   - Viewed role details
+
+4. Other Services (10:15-10:17)
+   - Quick check of RDS
+   - Quick check of Lambda
+
+Expected CloudTrail Events:
+- ListBuckets
+- GetBucketLocation  
+- DescribeInstances
+- DescribeSecurityGroups
+- GetUser
+- ListAccessKeys
+- ListRoles
+- DescribeDBInstances
+- ListFunctions
+
+Baseline Type: Normal, exploratory behavior
+Suspicious: NO - this is normal administrator checking resources
+
+
+

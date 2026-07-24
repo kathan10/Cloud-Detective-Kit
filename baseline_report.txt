@@ -1,0 +1,59 @@
+﻿SCENARIO 1: BASELINE ACTIVITY REPORT
+=====================================
+
+Investigation Date: [Today's date]
+Evidence File: evidence/cloudtrail_[TIMESTAMP].json
+Analyst: Kathan Majithiya
+
+SUMMARY:
+--------
+Created baseline of normal administrative activity in AWS account.
+This establishes what "normal" behavior looks like for comparison
+with future suspicious activity.
+
+STATISTICS:
+-----------
+Total Events: [Fill from your output]
+Time Range: [Fill from your output]
+Users Involved: 1 (me)
+IP Addresses: [Fill from your output]
+
+ACTIVITY BREAKDOWN:
+-------------------
+[Copy from your explore_evidence.py output]
+
+1. S3 Service: X events
+   - ListBuckets
+   - GetBucketLocation
+   - etc.
+
+2. EC2 Service: X events
+   - DescribeInstances
+   - etc.
+
+3. IAM Service: X events
+   - GetUser
+   - etc.
+
+BEHAVIORAL PATTERNS (NORMAL):
+------------------------------
+âœ… Slow, deliberate browsing
+âœ… Exploring options without creating resources
+âœ… Checking configurations and permissions
+âœ… Single IP address (consistent location)
+âœ… During normal working hours
+âœ… No rapid API calls
+âœ… No unusual services accessed
+âœ… No privilege escalation attempts
+âœ… No data exfiltration patterns
+
+BASELINE CHARACTERISTICS:
+--------------------------
+- Activity Type: Exploratory/Administrative
+- Frequency: Moderate
+- Pattern: Sequential service checking
+- Risk Level: NONE (expected behavior)
+- Suspicious Indicators: NONE
+
+
+

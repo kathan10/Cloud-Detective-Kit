@@ -1,0 +1,42 @@
+﻿ATTACK SIMULATION LOG - PHASE 1: RECONNAISSANCE
+================================================
+
+Date: Thu Jan 29 01:53:20 AM EST 2026
+
+Simulated Attacker: Kathan (me)
+Purpose: Learning DFIR investigation
+
+ACTIVITY 1: S3 RECONNAISSANCE
+-----------------------------
+Time:Thu Jan 29 01:53:20 AM EST 2026
+ 
+
+Actions Taken:
+1. Searched for "S3" in AWS Console
+   - Why: Attackers check S3 first for data
+   - Expected Evidence: ListAllMyBuckets API call in CloudTrail
+
+2. Viewed bucket list
+   - Buckets found: 1 number you saw
+   - Why: Mapping what data exists
+   - Expected Evidence: ListBuckets API call
+
+3.  1 Bucket Explored bucket contents
+   - Checked permissions
+   - Looked for public access
+   - Why: Looking for easy targets
+
+4. Attempted to create bucket (cancelled)
+   - Bucket name: test-recon-bucket-2026
+   - Why: Testing permissions
+   - Expected Evidence: CreateBucket API attempt (may show as failed)
+
+What I learned:
+- Even browsing creates CloudTrail evidence
+- Cancelled actions still get logged
+- Attacker behavior is systematic
+
+Pattern: Exploratory reconnaissance of S3 storage
+
+
+
